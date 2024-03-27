@@ -1,4 +1,4 @@
-﻿var numberOfProcessorsToUse = Environment.ProcessorCount - 4;
+﻿var numberOfProcessorsToUse = Environment.ProcessorCount - 2;
 Console.WriteLine($"Using {numberOfProcessorsToUse} processors:");
 while (true)
 {
