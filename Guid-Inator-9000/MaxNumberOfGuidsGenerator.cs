@@ -7,7 +7,7 @@ namespace Guid_Inator_9000;
 public class MaxNumberOfGuidsGenerator
 {
     //public BigInteger MaxNumberOfGuids = (BigInteger)50000000;
-    [Params(5000)]
+    [Params(50000000)]
     public BigInteger MaxNumberOfGuids = (BigInteger)Math.Pow(2, 128);
 
     public void Run()
