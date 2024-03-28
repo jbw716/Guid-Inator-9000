@@ -6,16 +6,16 @@ namespace Guid_Inator_9000;
 
 public class MaxNumberOfGuidsGenerator
 {
-    //public BigInteger MaxNumberOfGuids = (BigInteger)50000000;
-    [Params(50000000)]
-    public BigInteger MaxNumberOfGuids = (BigInteger)Math.Pow(2, 128);
+    public BigInteger MaxNumberOfGuids = (BigInteger)10000000000;
+    //[Params(1000000000)]
+    //public BigInteger MaxNumberOfGuids = (BigInteger)Math.Pow(2, 128);
 
     public void Run()
     {
         //using StreamWriter file = new(Path.Combine(Path.GetTempPath(), "Guid-Inator-9000", "MaxNumberOfGuids.txt"));
         //file.WriteLine(MaxNumberOfGuids);
-        GenerateGuidsParallelSimple();
-        //GenerateGuidsSingleThreaded();
+        //GenerateGuidsParallelSimple();
+        GenerateGuidsSingleThreaded();
         Console.WriteLine("Done!");
     }
 
@@ -49,7 +49,7 @@ public class MaxNumberOfGuidsGenerator
         {
             var Guids = new ConcurrentBag<Guid>();
             var parallelOptions = new ParallelOptions { MaxDegreeOfParallelism = Environment.ProcessorCount - 2 };
-            Parallel.For(0, 10000000, (index) =>
+            Parallel.For(0, 100000000, (index) =>
             {
                 Guids.Add(Guid.NewGuid());
             });

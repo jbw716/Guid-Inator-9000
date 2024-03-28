@@ -1,11 +1,11 @@
-﻿using BenchmarkDotNet.Running;
+﻿//using BenchmarkDotNet.Running;
 using Guid_Inator_9000;
 using System.Diagnostics;
 
-// var guidTester = new GuidTester();
-// guidTester.Start();
+ var guidTester = new GuidTester();
+guidTester.Start();
 
-var summary = BenchmarkRunner.Run<MaxNumberOfGuidsGenerator>();
+//var summary = BenchmarkRunner.Run<MaxNumberOfGuidsGenerator>();
 
 //var stopwatch = new Stopwatch();
 //stopwatch.Start();

@@ -14,8 +14,8 @@ internal class GuidTester
                 Console.WriteLine("Duplicate guids found!");
                 break;
             }
-            Console.CursorTop = 1;
-            Console.CursorLeft = 0;
+            //Console.CursorTop = 1;
+            //Console.CursorLeft = 0;
         }
     }
 
