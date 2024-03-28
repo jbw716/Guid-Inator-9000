@@ -8,7 +8,7 @@ internal class GuidTester
         while (true)
         {
             var guids = GenerateGuidsUsingParallelism(numberOfProcessorsToUse);
-            LogGuids(guids);
+            //LogGuids(guids);
             if (CheckForDuplicates(guids))
             {
                 Console.WriteLine("Duplicate guids found!");
