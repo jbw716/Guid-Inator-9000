@@ -20,9 +20,10 @@ public class GuidTesterTests
     {
         var guidTester = new GuidTester();
         var guids = new Guid[] { Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid() };
-        Assert.False(guidTester.CheckForDuplicates(guids));
+        Guid? dupe;
+        Assert.False(guidTester.CheckForDuplicates(guids, out dupe));
         guids = new Guid[] { Guid.NewGuid(), guids[0], guids[0] };
-        Assert.True(guidTester.CheckForDuplicates(guids));
+        Assert.True(guidTester.CheckForDuplicates(guids, out dupe));
     }
 
     [Fact]

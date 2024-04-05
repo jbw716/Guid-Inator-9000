@@ -39,7 +39,7 @@ internal class GuidTester
 
     internal bool CheckForDuplicates(IEnumerable<Guid> guids, out Guid? duplicate)
     {
-        duplicate = guids.GroupBy(x => x).Where(x => x.Count() > 1).Select(x => x.Key).FirstOrDefault();
+        duplicate = guids.GroupBy(x => x).Where(x => x.Count() > 1).Select(x => (Guid?)x.Key).FirstOrDefault();
         return duplicate is not null;
     }
 }
