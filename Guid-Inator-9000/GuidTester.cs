@@ -9,9 +9,11 @@ internal class GuidTester
         {
             var guids = GenerateGuidsUsingParallelism(numberOfProcessorsToUse);
             //LogGuids(guids);
-            if (CheckForDuplicates(guids))
+            Guid? duplicate;
+            if (CheckForDuplicates(guids, out duplicate))
             {
-                Console.WriteLine("Duplicate guids found!");
+                Console.WriteLine("Duplicate guid found!");
+                Console.WriteLine(duplicate);
                 break;
             }
             //Console.CursorTop = 1;
@@ -35,8 +37,9 @@ internal class GuidTester
         Console.WriteLine(string.Join("\n", guids));
     }
 
-    internal bool CheckForDuplicates(IEnumerable<Guid> guids)
+    internal bool CheckForDuplicates(IEnumerable<Guid> guids, out Guid? duplicate)
     {
-        return guids.Distinct().Count() != guids.Count();
+        duplicate = guids.GroupBy(x => x).Where(x => x.Count() > 1).Select(x => x.Key).FirstOrDefault();
+        return duplicate is not null;
     }
 }
